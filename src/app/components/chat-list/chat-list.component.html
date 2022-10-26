@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let chat of availableChats">
+    <tr>
+      <td>{{ chat.id }}</td>
+      <td>{{ chat.name }}</td>
+      <td><a class="btn btn-primary" (click)="connectTo(chat.id)">Connect</a></td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/chats/add" class="btn btn-primary">Create</a>

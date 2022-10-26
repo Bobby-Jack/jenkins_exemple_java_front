@@ -1,0 +1,22 @@
+<div id="chat-container">
+  <div class="chat-header">
+    <div class="user-container">
+      <!--      <span id="username" th:utext="${username}"></span>-->
+      <!--      <a th:href="@{/chat/leave/{id}(id=${room.getId()})}">Leave</a>-->
+    </div>
+  </div>
+
+  <hr/>
+
+  <div id="connecting">Connecting...</div>
+  <ul id="messageArea" *ngFor="let msg of receivedMessages">
+    {{ msg }}
+  </ul>
+  <form id="messageForm" name="messageForm">
+    <div class="input-message">
+      <input type="text" id="message" autocomplete="off"
+             [formControl]="msgCtrl"/>
+      <button type="submit" (click)="sendMessage()">Send</button>
+    </div>
+  </form>
+</div>
