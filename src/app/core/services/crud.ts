@@ -23,17 +23,17 @@ export abstract class CRUD<T>
 
   public insert(body: T)
   {
-    return this.server.post<T>(this.config.path, body);
+    return this.server.post<T>(`${environment.api.url}${this.config.path}`, body);
   }
 
   public update(id: number, body: T)
   {
-    return this.server.put<T>(this.config.path + `/${id}`, body);
+    return this.server.put<T>(`${environment.api.url}${this.config.path}/${id}`, body);
   }
 
   public delete(id: number)
   {
-    return this.server.delete<T>(this.config.path + `/${id}`);
+    return this.server.delete<T>(`${environment.api.url}${this.config.path}/${id}`);
   }
 }
 
