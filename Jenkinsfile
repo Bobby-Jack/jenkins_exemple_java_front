@@ -11,7 +11,8 @@ pipeline{
         stage("Build"){
             steps{
                 sh """
-                    sed -i "s|url: 'http://localhost:8080/api/'|url: 'http://api.deploy.local.exo.be/'|" nom_du_fichier.ts
+                    sed -i "s|url: 'http://localhost:8080/api/'|url: 'http://api.deploy.local.exo.be/'|" src/environments/environment.ts
+                    
          """
                 sh 'docker image rm -f deployment-front || true'
                 sh 'rm -f ./deployment-front.tar || true'
