@@ -12,7 +12,9 @@ pipeline{
             steps{
                 sh """
                     sed -i "s|url: '.*'|url: 'http://api.deploy.local.exo.be/'|" src/environments/environment.ts
+                    
                 """
+                sh 'cat src/environments/environment.ts # Pour vérifier la structure dans les logs Jenkins'
                 sh 'docker image rm -f deployment-front || true'
                 sh 'rm -f ./deployment-front.tar || true'
                 sh "docker build -t deployment-front ."
