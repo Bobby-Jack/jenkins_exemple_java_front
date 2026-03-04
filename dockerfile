@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copier les fichiers de build depuis le stage précédent
-COPY --from=build /app/dist/your-angular-app-name /usr/share/nginx/html
+COPY --from=build /app/dist/nexios-demo /usr/share/nginx/html
 
 # Exposer le port 80 (par défaut pour Nginx)
 EXPOSE 80
